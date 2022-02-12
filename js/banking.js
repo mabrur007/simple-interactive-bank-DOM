@@ -17,9 +17,21 @@ document.getElementById('deposit-button').addEventListener('click', function () 
 
     // clear the deposit input field
     depositInput.value = '';
+
+    // ---------- account balance total update ------- //
+    const balanceTotal = document.getElementById('balance-total');
+    const previousBalanceTotalText = balanceTotal.innerText;
+    const previousBalanceTotal = parseFloat(previousBalanceTotalText);
+    const newBalanceTotal = previousBalanceTotal + newDepositAmount;
+    balanceTotal.innerText = newBalanceTotal;
 });
 
 // withdraw button event handler
 document.getElementById('withdraw-button').addEventListener('click', function () {
     console.log('withdraw button clicked.')
+});
+
+// withdraw button handler
+document.getElementById('withdraw-button').addEventListener('click', function (){
+    
 });
