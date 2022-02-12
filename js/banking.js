@@ -26,12 +26,32 @@ document.getElementById('deposit-button').addEventListener('click', function () 
     balanceTotal.innerText = newBalanceTotal;
 });
 
-// withdraw button event handler
+// -------------- withdraw button event handler ---------- //
 document.getElementById('withdraw-button').addEventListener('click', function () {
-    console.log('withdraw button clicked.')
-});
+    const withdrawInput = document.getElementById('withdraw-input');
+    const withdrawAmountText = withdrawInput.value;
+    const newWithdrawAmount = parseFloat(withdrawAmountText);
+    console.log(withdrawAmountText)
 
-// withdraw button handler
-document.getElementById('withdraw-button').addEventListener('click', function (){
-    
-});
+    // set withdraw total
+    const withdrawTotal = document.getElementById('withdraw-total');
+    const previousWithdrawTotalText = withdrawTotal.innerText;
+    const previousWithdrawTotal = parseFloat(previousWithdrawTotalText);
+    console.log(previousWithdrawTotal);
+
+    const newWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
+    withdrawTotal.innerText = newWithdrawTotal;
+
+    // Update account balance
+    const balanceTotal = document.getElementById('balance-total');
+    const previousBalanceTotalText = balanceTotal.innerText;
+    const previousBalanceTotal = parseFloat(previousBalanceTotalText);
+    console.log(previousBalanceTotal);
+
+    const currentBalance = previousBalanceTotal - newWithdrawAmount;
+    balanceTotal.innerText = currentBalance;
+
+    // make withdrawInput empty
+    withdrawInput.value = '';
+
+}); 
